@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Add from "./components/Add";
+import Search from "./components/Search";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 
 function App () {
   const [listItem, setListItem] = useState([]);
   const [newItem, setNewItem] = useState('');
+  const [search, setSearch] = useState('');
 
   const handleAdd = (item) => {
     const id = listItem.length ? listItem[listItem.length - 1].id + 1 : 1;
@@ -37,8 +39,12 @@ function App () {
           setNewItem={setNewItem}
           handleSubmit={handleSubmit}
         />
+        <Search
+          search={search}
+          setSearch={setSearch}
+        />
         <Content
-          listItem={listItem}
+          listItem={listItem.filter(item => ((item.name).toLowerCase()).includes(search.toLowerCase()))}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
         />
