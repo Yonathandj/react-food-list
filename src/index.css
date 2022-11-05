@@ -36,3 +36,31 @@ footer {
   letter-spacing: 2px;
   background-color: #404258;
 }
+
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+label {
+  top: -99999px;
+  position: absolute;
+}
+.addBar {
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 5px;
+  border: 2px solid #404258;
+}
+.plusIcon {
+  cursor: pointer;
+  color: #404258;
+  font-size: 1.5rem;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+}
+.list-empty-text {
+  margin-top: 10em;
+  margin-left: 37.5em;
+}
