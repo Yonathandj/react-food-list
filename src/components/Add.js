@@ -12,9 +12,6 @@ const Add = ({ newItem, setNewItem, handleSubmit }) => {
         value={newItem}
         onChange={e => setNewItem(e.target.value)}
       />
-      <FaPlus
-        className='plusIcon'
-      />
     </form>
   )
 }
