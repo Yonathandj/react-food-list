@@ -1,5 +1,5 @@
-import React from 'react'
-import { FaTrashAlt } from 'react-icons/fa'
+import React from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const Item = ({ listItem, handleDelete, handleCheck }) => {
   return (
@@ -8,8 +8,8 @@ const Item = ({ listItem, handleDelete, handleCheck }) => {
         listItem.map(item => (
           <li key={item.id}>
             <div className='checkbox'>
-              <input type="checkbox" name="checked" onChange={() => handleCheck(item.id)}/>
-              <h4>{item.name}</h4>
+              <input type="checkbox" onChange={() => handleCheck(item.id)}/>
+              <h3>{item.name}</h3>
             </div>
               <FaTrashAlt
                 onClick={() => handleDelete(item.id)}

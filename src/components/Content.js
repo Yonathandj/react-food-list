@@ -1,5 +1,5 @@
-import React from 'react'
-import Item from './Item'
+import React from 'react';
+import Item from './Item';
 
 const Content = ({ listItem, handleDelete, handleCheck }) => {
   return (
@@ -8,8 +8,8 @@ const Content = ({ listItem, handleDelete, handleCheck }) => {
         listItem.length ? 
           <Item 
             listItem={listItem}
-            handleDelete={handleDelete}
             handleCheck={handleCheck}
+            handleDelete={handleDelete}
             /> 
           : 
           <p className='list-empty-text'>Sorry, list is empty</p>
