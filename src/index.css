@@ -6,7 +6,6 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
-
 body {
   width: 100%;
   height: 100vh;
@@ -63,4 +62,38 @@ label {
 .list-empty-text {
   margin-top: 10em;
   margin-left: 37.5em;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  flex-direction: column;
+  justify-content: center;
+}
+ul li {
+  width: 50%;
+  padding: 1em;
+  display: flex;
+  margin-top: 1em;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(218, 218, 218);
+  box-shadow: 2px 2px 2px 2px rgb(102, 102, 102);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkbox input {
+  width: 20px;
+  height: 20px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.trash-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
 }

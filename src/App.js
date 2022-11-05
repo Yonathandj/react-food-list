@@ -11,7 +11,7 @@ function App () {
 
   const handleAdd = (item) => {
     const id = listItem.length ? listItem[listItem.length - 1].id + 1 : 1;
-    const newItem = {id, name : item};
+    const newItem = {checked: false, id, name : item};
     const newListItem = [...listItem, newItem]
     setListItem(newListItem);
   }
@@ -20,6 +20,11 @@ function App () {
     e.preventDefault()
     handleAdd(newItem)
     setNewItem('');
+  }
+
+  const handleDelete = (id) => {
+    const newListItem = listItem.filter(item => item.id !== id)
+    setListItem(newListItem)
   }
 
   return (
@@ -33,6 +38,7 @@ function App () {
         />
         <Content
           listItem={listItem}
+          handleDelete={handleDelete}
         />
       </div>
       <div className="footer">
