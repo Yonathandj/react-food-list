@@ -22,6 +22,11 @@ function App () {
     setNewItem('');
   }
 
+  const handleCheck = (id) => {
+    const newListItem = listItem.map(item => item.id === id ? {...item, checked: !item.checked} : item)
+    setListItem(newListItem)
+  }
+
   const handleDelete = (id) => {
     const newListItem = listItem.filter(item => item.id !== id)
     setListItem(newListItem)
@@ -39,6 +44,7 @@ function App () {
         <Content
           listItem={listItem}
           handleDelete={handleDelete}
+          handleCheck={handleCheck}
         />
       </div>
       <div className="footer">
