@@ -3,7 +3,7 @@ import Item from './Item';
 
 const Content = ({ listItem, handleDelete, handleCheck }) => {
   return (
-    <main>
+    <>
       {
         listItem.length ? 
           <Item 
@@ -14,7 +14,7 @@ const Content = ({ listItem, handleDelete, handleCheck }) => {
           : 
           <p className='list-empty-text'>Sorry, list is empty</p>
       }
-    </main>
+    </>
   )
 }
 
