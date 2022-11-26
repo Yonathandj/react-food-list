@@ -9,7 +9,7 @@ const Item = ({ listItem, handleDelete, handleCheck }) => {
           <li key={item.id}>
             <div className='checkbox'>
               <input type="checkbox" onChange={() => handleCheck(item.id)}/>
-              <h3>{item.name}</h3>
+              <h3>{item.item}</h3>
             </div>
               <FaTrashAlt
                 onClick={() => handleDelete(item.id)}

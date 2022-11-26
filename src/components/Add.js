@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaPlus } from "react-icons/fa";
 
 const Add = ({ newItem, setNewItem, handleSubmit }) => {
   return (
@@ -16,4 +15,4 @@ const Add = ({ newItem, setNewItem, handleSubmit }) => {
   )
 }
 
-export default Add
+export default Add;

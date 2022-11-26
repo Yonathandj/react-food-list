@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Add from "./components/Add";
 import Search from "./components/Search";
@@ -6,13 +6,16 @@ import Content from "./components/Content";
 import Footer from "./components/Footer";
 
 function App () {
+
+  const API_URL = "http://localhost:3500/items";
+
   const [listItem, setListItem] = useState([]);
   const [newItem, setNewItem] = useState('');
   const [search, setSearch] = useState('');
 
   const handleAdd = (item) => {
     const id = listItem.length ? listItem[listItem.length - 1].id + 1 : 1;
-    const newItem = {checked: false, id, name : item};
+    const newItem = {id, checked: false, item};
     const newListItem = [...listItem, newItem];
     setListItem(newListItem);
   }
@@ -44,7 +47,7 @@ function App () {
           setSearch={setSearch}
         />
         <Content
-          listItem={listItem.filter(item => ((item.name).toLowerCase()).includes(search.toLowerCase()))}
+          listItem={listItem.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
         />
