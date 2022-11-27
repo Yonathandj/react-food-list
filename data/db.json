@@ -1,19 +1,19 @@
 {
   "items": [
     {
+      "id": 1,
+      "checked": false,
+      "item": "Fried Rice"
+    },
+    {
       "id": 2,
       "checked": false,
-      "item": "Pizza"
+      "item": "Apple"
     },
     {
       "id": 3,
       "checked": false,
-      "item": "apple"
-    },
-    {
-      "id": 4,
-      "checked": false,
-      "item": "pizza"
+      "item": "Pizza"
     }
   ]
 }
