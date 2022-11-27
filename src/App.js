@@ -5,8 +5,9 @@ import Search from "./components/Search";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 
-function App () {
+import apiRequest from "./apiRequest";
 
+function App () {
   const API_URL = "http://localhost:3500/items";
 
   const [listItem, setListItem] = useState([]);
@@ -30,31 +31,64 @@ function App () {
         setIsLoading(false);
       }
     }
-    
     setTimeout(() => {
       fetchItems();
     }, 2000)
-    
   }, []);
   
-  const handleAdd = (item) => {
+
+  const handleAdd = async (item) => {
     const id = listItem.length ? listItem[listItem.length - 1].id + 1 : 1;
     const newItem = {id, checked: false, item};
     const newListItem = [...listItem, newItem];
     setListItem(newListItem);
+
+    const postOption = {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(newItem)
+    }
+    const result = await apiRequest(API_URL, postOption);
+    if (result) setFetchError(result);
   }
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAdd(newItem);
     setNewItem('');
   }
-  const handleCheck = (id) => {
+
+
+  const handleCheck = async (id) => {
     const newListItem = listItem.map(item => item.id === id ? {...item, checked: !item.checked} : item);
     setListItem(newListItem);
+
+    const changeStateCheckItem = newListItem.filter(item => item.id === id);
+
+    const patchOption = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({checked: changeStateCheckItem[0].checked})
+    }
+    const reqURL = `${API_URL}/${id}` ;
+    const result = await apiRequest(reqURL, patchOption);
+    if (result) setFetchError(result);
   }
-  const handleDelete = (id) => {
+
+
+  const handleDelete = async (id) => {
     const newListItem = listItem.filter(item => item.id !== id);
     setListItem(newListItem);
+    
+    const deleteOption = {method: "DELETE"};
+    const reqURL = `${API_URL}/${id}`;
+    const result = await apiRequest(reqURL, deleteOption);
+    if (result) setFetchError(result);
   }
 
   return (
